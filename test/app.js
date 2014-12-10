@@ -1,6 +1,5 @@
 var request = require('supertest'), 
-app = require('../index.js'),
-server = require('http').createServer(app);
+app = require('../index.js');
 
 describe( "PUT porra", function() {
     it('should create', function (done) {
