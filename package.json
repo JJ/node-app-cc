@@ -10,7 +10,6 @@
     "main": "./index.js",
     "scripts": {
 	"test": "mocha",
-	"postinstall": "grunt borradb; grunt creadb",
 	"start": "node index.js"
     },
     "dependencies": {

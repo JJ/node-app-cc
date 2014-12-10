@@ -6,9 +6,7 @@ var db_file = "porrio.db.sqlite3";
 var apuesta = require("./Apuesta.js");
 var porra = require("./Porra.js");
 
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(db_file);
-
+var porras = new Array;
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -16,15 +14,12 @@ app.use(express.static(__dirname + '/public'));
 app.put('/porra/:local/:visitante/:competition/:year', function( req, response ) {
     var nueva_porra = new porra.Porra(req.params.local,req.params.visitante,
 				      req.params.competition, req.params.year );
-    nueva_porra.inserta_db( db, 'partido');
+    porras.push(nueva_porra.inserta_db);
     response.send(nueva_porra)
 });
 
 app.get('/porras', function(request, response) {
-    db.all("SELECT * FROM partido", function(err, rows) {
-	response.send( rows );
-    });
-    
+    response.send( porras );
 });
 
 app.listen(app.get('port'), function() {
