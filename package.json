@@ -1,25 +1,27 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
-  "main": "index.js",
+  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/desarrollo-basado-pruebas)",
+  "name": "porrio",
+  "description": "Apuestas en una porra",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
+  },
+  "main": "./prueba.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "mocha"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "sqlite3": "~3.0"
   },
+  "devDependencies": {
+    "assert": "^1.1.2",
+    "docco": "~0.6",
+    "grunt-docco": "~0.3.3",
+    "mocha": "~2.0.1",
+    "grunt-shell": "~1.1.1"
+  },
+  "optionalDependencies": {},
   "engines": {
-    "node": "0.10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+    "node": ">=0.8"
+  }
 }
