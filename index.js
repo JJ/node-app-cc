@@ -14,8 +14,8 @@ app.use(express.static(__dirname + '/public'));
 app.put('/porra/:local/:visitante/:competition/:year', function( req, response ) {
     var nueva_porra = new porra.Porra(req.params.local,req.params.visitante,
 				      req.params.competition, req.params.year );
-    porras.push(nueva_porra.inserta_db);
-    response.send(nueva_porra)
+    porras.push(nueva_porra);
+    response.send(nueva_porra);
 });
 
 app.get('/porras', function(request, response) {
