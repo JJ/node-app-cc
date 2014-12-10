@@ -21,7 +21,11 @@ module.exports = function(grunt) {
             },
 	    clean: {
 		command: 'rm porrio.db.sqlite3'
-            }
+            },
+	    // para probar el despliegue
+	    puts: {
+		command: 'curl -X PUT https://fierce-mesa-9152.herokuapp.com/porra/Madri/Barcelona/Champion/2004; curl -X PUT https://fierce-mesa-9152.herokuapp.com/porra/Madri/Barcelona/Champion/2003, curl -X PUT https://fierce-mesa-9152.herokuapp.com/porra/Atleti/Barcelona/Champion/2003'
+	    }
 	}
     });
 
@@ -35,4 +39,5 @@ module.exports = function(grunt) {
     // Otras tareas
     grunt.registerTask('creadb', ['shell:db']);
     grunt.registerTask('borradb', ['shell:clean']);
+    grunt.registerTask('put', ['shell:puts']);
 };
