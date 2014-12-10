@@ -1,34 +1,35 @@
 {
-    "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/node-app-cc)",
-    "name": "porrio",
-    "description": "Apuestas en una porra",
-    "version": "0.0.1",
-    "repository": {
-	"type": "git",
-	"url": "git://github.com/JJ/node-app-cc.git"
-    },
-    "main": "./index.js",
-    "scripts": {
-	"test": "mocha",
-	"start": "node index.js"
-    },
-    "dependencies": {
-	"sqlite3": "~3.0",
-	"express": "~4.9.x"
-    },
-    "devDependencies": {
-	"assert": "^1.1.2",
-	"docco": "~0.6",
-	"grunt-docco": "~0.3.3",
-	"mocha": "~2.0.1",
-	"grunt-shell": "~1.1.1"
-    },
-    "keywords": [
-	"node",
-	"heroku",
-	"express"
-    ],
-    "engines": {
-	"node": ">=0.8"
-    }
+  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/node-app-cc)",
+  "name": "porrio",
+  "description": "Apuestas en una porra",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JJ/node-app-cc.git"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "sqlite3": "~3.0",
+    "express": "~4.9.x"
+  },
+  "devDependencies": {
+    "assert": "^1.1.2",
+    "docco": "~0.6",
+    "grunt-docco": "~0.3.3",
+    "grunt-shell": "~1.1.1",
+    "mocha": "~2.0.1",
+    "supertest": "^0.15.0"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "engines": {
+    "node": ">=0.8"
+  }
 }

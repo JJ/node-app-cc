@@ -17,7 +17,6 @@ describe('Porra', function(){
     describe('Crea', function(){
 	it('Debería crearse correctamente', function(){
 	    esta_porra = new porra.Porra( "Marajena", "Gualchos", "Provincial", "2014");
-	    console.log(esta_porra);
 	    assert.equal(esta_porra.ID, "Marajena-Gualchos-Provincial-2014");
 	});
     });
