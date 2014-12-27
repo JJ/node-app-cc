@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             },
 	    // para probar el despliegue
 	    puts: {
-		command: 'curl -X PUT https://fierce-mesa-9152.herokuapp.com/porra/Madri/Barcelona/Champion/2004; curl -X PUT https://fierce-mesa-9152.herokuapp.com/porra/Madri/Barcelona/Champion/2003, curl -X PUT https://fierce-mesa-9152.herokuapp.com/porra/Atleti/Barcelona/Champion/2003'
+		command: 'curl -X PUT http://localhost:5000/porra/Madri/Barcelona/Champion/2004; curl -X PUT http://localhost:5000/porra/Madri/Barcelona/Champion/2003, curl -X PUT http://localhost:5000/porra/Atleti/Barcelona/Champion/2003'
 	    }
 	}
     });
