@@ -14,12 +14,21 @@ describe('Porra', function(){
 	});
 	
     });
+
+    esta_porra = new porra.Porra( "Marajena", "Gualchos", "Provincial", "2014");   
+    describe('ID', function(){
+	it('Debería generar ID correcto', function(){
+	    var un_id = esta_porra.crea_id( "1", "2", "3", "4");
+	    assert.equal(un_id, "1-2-3-4");
+	});
+    });
+
     describe('Crea', function(){
 	it('Debería crearse correctamente', function(){
-	    esta_porra = new porra.Porra( "Marajena", "Gualchos", "Provincial", "2014");
 	    assert.equal(esta_porra.ID, "Marajena-Gualchos-Provincial-2014");
 	});
     });
+
 });
 
 describe('Apuesta', function(){
