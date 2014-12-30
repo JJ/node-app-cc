@@ -11,7 +11,6 @@ exports.Porra = function (local,visitante,competition,year) {
     this.las_apuestas = las_apuestas;
     this.inserta_db = inserta_db;
     this.crea_id = crea_id;
-
     
 }
 

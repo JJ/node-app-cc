@@ -41,8 +41,8 @@ describe('Apuesta', function(){
     });
     describe('Crea', function(){
 	it('should create apuestas correctly', function(){
-	    var nueva_apuesta = new apuesta.Apuesta(esta_porra, 'Polopos','Alhama','2-3');
-	    assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+	    var nueva_apuesta = new apuesta.Apuesta(esta_porra, 'Menda','2','3');
+	    assert.equal(nueva_apuesta.as_string(), "Menda: 2 - 3","Creado");
 	});
     });
 });
