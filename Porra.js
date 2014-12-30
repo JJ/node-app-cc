@@ -5,15 +5,22 @@ exports.Porra = function (local,visitante,competition,year) {
     this.competition= competition;
     this.year = year;
     this.apuestas = new Array;
-    this.ID = local+"-"+visitante+"-"+competition+"-"+year;
+    this.ID = crea_id( local,visitante,competition,year );
     // functions
     this.nueva_apuesta = nueva_apuesta;
     this.las_apuestas = las_apuestas;
     this.inserta_db = inserta_db;
+    this.crea_id = crea_id;
+
+    
 }
 
 function nueva_apuesta( apuesta ) {
     this.apuestas.push( apuesta );
+}
+
+function crea_id ( local, visitante, competition, year ) {
+    return local+"-"+visitante+"-"+competition+"-"+year;
 }
 
 function las_apuestas () {
