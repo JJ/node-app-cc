@@ -27,10 +27,14 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
     } else {
 	if ( !apuestas[esta_porra.ID] ) {
 	    apuestas[esta_porra.ID] = new Object;
-	} else {
-	    apuestas[esta_porra.ID][req.params.menda] = 
-		new apuesta.Apuesta( esta_porra, req.params.menda, req.params.goles_local, req.params.goles_visitante );
-	}
+	} 
+
+	apuestas[esta_porra.ID][req.params.menda] = 
+	    new apuesta.Apuesta( esta_porra, req.params.menda, 
+				 req.params.goles_local, 
+				 req.params.goles_visitante );
+	
+	response.status(200).send( apuestas[esta_porra.ID][req.params.menda] );
     }
     
 });  

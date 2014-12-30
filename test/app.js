@@ -22,4 +22,18 @@ describe( "PUT porra", function() {
 		done();
 	    });
     });
+    it('should create bet correctly', function (done) {
+	request(app)
+	    .put('/apuesta/porrio/liga/2014/mad/2/bcn/2')
+	    .expect('Content-Type', /json/)
+	    .expect(200)
+	    .end( function ( error, resultado ) {
+		if ( error ) {
+		    return done( error );
+		}
+		resultado.body.should.have.property('local','2');
+		done();
+	    });
+    });
+
 });
