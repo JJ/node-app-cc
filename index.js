@@ -39,12 +39,25 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
     
 });  
 
+// Baja todas las porras que haya en un momento determinado
 app.get('/porras', function(request, response) {
     response.send( porras );
 });
 
+// Baja todas las apuestas de un partido determinado
+app.get('/porra/:ID', function(request, response) {
+    esta_porra_ID = request.params.ID;
+    if ( !porras[esta_porra_ID] ) {
+	response.status(404).send("No existe esa porra");
+    } else {
+	response.status(200).send( porras[esta_porra_ID] );
+    }
+});
+
+// Escucha en un puerto determinado.
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });
 
+// Exporta la variable para poder hacer tests
 module.exports = app;

@@ -1,6 +1,7 @@
 var request = require('supertest'), 
 should = require('should'),
-app = require('../index.js');
+app = require('../index.js'),
+want_id = "mad-bcn-liga-2014";
 
 describe( "PUT porra", function() {
     it('should return correct type', function (done) {
@@ -18,7 +19,7 @@ describe( "PUT porra", function() {
 		if ( error ) {
 		    return done( error );
 		}
-		resultado.body.should.have.property('ID',"mad-bcn-liga-2014");
+		resultado.body.should.have.property('ID', want_id);
 		done();
 	    });
     });
@@ -32,6 +33,20 @@ describe( "PUT porra", function() {
 		    return done( error );
 		}
 		resultado.body.should.have.property('local','2');
+		done();
+	    });
+    });
+    
+    it('should return all bets correctly', function (done) {
+	request(app)
+	    .get('/porra/'+want_id)
+	    .expect('Content-Type', /json/)
+	    .expect(200)
+	    .end( function ( error, resultado ) {
+		if ( error ) {
+		    return done( error );
+		}
+		resultado.body.should.have.property('local','mad');
 		done();
 	    });
     });
