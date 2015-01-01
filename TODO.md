@@ -1,3 +1,6 @@
 #Cosas que hacer
 
-* [ ] Prepararlo para OpenShift y probarlo.
+* [x] Prepararlo para OpenShift y probarlo.
+* [ ] Documentar la aplicación
+	* [ ] Ya me vale.
+	
