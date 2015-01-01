@@ -29,12 +29,12 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
 	    apuestas[esta_porra.ID] = new Object;
 	} 
 
-	apuestas[esta_porra.ID][req.params.menda] = 
+	var esta_apuesta = 
 	    new apuesta.Apuesta( esta_porra, req.params.menda, 
 				 req.params.goles_local, 
 				 req.params.goles_visitante );
-	
-	response.status(200).send( apuestas[esta_porra.ID][req.params.menda] );
+	porras[esta_porra.ID].nueva_apuesta( esta_apuesta )
+	response.status(200).send( esta_apuesta );
     }
     
 });  
