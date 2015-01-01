@@ -57,7 +57,7 @@ app.get('/porra/:ID', function(request, response) {
 
 // Escucha en un puerto determinado.
 app.listen(app.get('port'), server_ip_address, function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
+  console.log("Node app is running at " + server_ip_address + ":" + app.get('port'));
 });
 
 // Exporta la variable para poder hacer tests
