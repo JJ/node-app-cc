@@ -8,6 +8,7 @@ var porra = require("./Porra.js");
 var porras = new Object, 
 apuestas = new Object;
 
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
@@ -55,7 +56,7 @@ app.get('/porra/:ID', function(request, response) {
 });
 
 // Escucha en un puerto determinado.
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), server_ip_address, function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });
 
