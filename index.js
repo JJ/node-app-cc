@@ -32,7 +32,6 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
 	    new apuesta.Apuesta( esta_porra, req.params.menda, 
 				 req.params.goles_local, 
 				 req.params.goles_visitante );
-	porras[esta_porra.ID].nueva_apuesta( esta_apuesta )
 	response.status(200).send( esta_apuesta );
     }
     
