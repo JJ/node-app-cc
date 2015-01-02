@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express');
 var app = express();
 
@@ -5,8 +7,7 @@ var app = express();
 var apuesta = require("./Apuesta.js");
 var porra = require("./Porra.js");
 
-var porras = new Object, 
-apuestas = new Object;
+var porras = new Object;
 
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 app.set('port', (process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000));
@@ -57,7 +58,7 @@ app.get('/porras', function(request, response) {
 
 // Baja todas las apuestas de un partido determinado
 app.get('/porra/:ID', function(request, response) {
-    esta_porra_ID = request.params.ID;
+    var esta_porra_ID = request.params.ID;
     if ( !porras[esta_porra_ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
