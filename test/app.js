@@ -52,3 +52,19 @@ describe( "PUT porra", function() {
     });
 
 });
+
+describe( "POST porra", function() {
+    it('should set result right', function (done) {
+	request(app)
+	    .post('/porra/resultado/liga/2014/mad/2/bcn/2')
+	    .expect('Content-Type', /json/)
+	    .expect(200)
+	    .end( function ( error, resultado ) {
+		if ( error ) {
+		    return done( error );
+		}
+		resultado.body.should.have.property('resultado','2-2');
+		done();
+	    });
+    });
+});

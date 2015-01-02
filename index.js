@@ -26,9 +26,6 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
     if ( !porras[esta_porra.ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
-	if ( !apuestas[esta_porra.ID] ) {
-	    apuestas[esta_porra.ID] = new Object;
-	} 
 
 	var esta_apuesta = 
 	    new apuesta.Apuesta( esta_porra, req.params.menda, 
@@ -38,7 +35,20 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
 	response.status(200).send( esta_apuesta );
     }
     
+});
+
+app.post('/porra/resultado/:competition/:year/:local/:goles_local/:visitante/:goles_visitante', function( req, response ) {
+    var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
+				     req.params.competition, req.params.year );
+    if ( !porras[esta_porra.ID] ) {
+	response.status(404).send("No existe esa porra");
+    } else {
+	porras[esta_porra.ID].resultado = req.params.goles_local + "-" + req.params.goles_visitante;
+	response.status(200).send( porras[esta_porra.ID] );
+    }
+    
 });  
+  
 
 // Baja todas las porras que haya en un momento determinado
 app.get('/porras', function(request, response) {
