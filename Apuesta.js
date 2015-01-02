@@ -1,10 +1,12 @@
+"use strict";
+
 // Definición de la clase Apuesta: `quien` = código de la persona que hace la apuesta `local, visitante` = goles del local y del visitante
 exports.Apuesta = function (porra,quien,local,visitante) {
     this.local = local;
     this.visitante= visitante;
     this.quien= quien;
     this.porra = porra.ID;
-
+    porra.nueva_apuesta( this );
     // Métodos
     this.as_string = as_string;
     this.inserta_db = inserta_db;

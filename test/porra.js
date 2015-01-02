@@ -51,7 +51,7 @@ describe('Añadiendo apuestas', function(){
     // Testea que se haya cargado bien la librería
     describe('Añade', function(){
 	it('should add apuestas correctly', function(){
-	    esta_porra.nueva_apuesta( new apuesta.Apuesta(esta_porra, 'Notas','3','2'));
+	    var otra_apuesta =  new apuesta.Apuesta(esta_porra, 'Notas','3','2');
 	    assert(esta_porra.apuestas_para("3-2"), "Creado");
 	});
 

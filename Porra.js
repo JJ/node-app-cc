@@ -1,3 +1,5 @@
+"use strict";
+
 // Definición de la clase Apuesta: `quien` = código de la persona que hace la apuesta `local, visitante` = goles del local y del visitante
 exports.Porra = function (local,visitante,competition,year) {
     this.local = local;
