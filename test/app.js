@@ -3,7 +3,7 @@ should = require('should'),
 app = require('../index.js'),
 want_id = "mad-bcn-liga-2014";
 
-describe( "PUT porra", function() {
+describe( "Crea porra y apuestas", function() {
     it('should return correct type', function (done) {
 	request(app)
 	    .put('/porra/uno/dos/tres/4')
@@ -33,8 +33,19 @@ describe( "PUT porra", function() {
 		    return done( error );
 		}
 		resultado.body.should.have.property('local','2');
+	    });
+	request(app)
+	    .put('/apuesta/porrio2/liga/2014/mad/2/bcn/2')
+	    .expect('Content-Type', /json/)
+	    .expect(200)
+	    .end( function ( error, resultado ) {
+		if ( error ) {
+		    return done( error );
+		}
+		resultado.body.should.have.property('visitante','2');
 		done();
 	    });
+
     });
     
     it('should return all bets correctly', function (done) {
@@ -51,9 +62,6 @@ describe( "PUT porra", function() {
 	    });
     });
 
-});
-
-describe( "POST porra", function() {
     it('should set result right', function (done) {
 	request(app)
 	    .post('/porra/resultado/liga/2014/mad/2/bcn/2')
@@ -67,9 +75,10 @@ describe( "POST porra", function() {
 		done();
 	    });
     });
+
     it('should return winners', function (done) {
 	request(app)
-	    .post('/porra/ganador/liga/2014/mad/bcn')
+	    .get('/porra/ganador/liga/2014/mad/bcn')
 	    .expect('Content-Type', /json/)
 	    .expect(200)
 	    .end( function ( error, resultado ) {

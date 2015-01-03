@@ -18,10 +18,14 @@ exports.Porra = function (local,visitante,competition,year) {
 
 function nueva_apuesta( apuesta ) {
     var resultado = apuesta.local + "-" + apuesta.visitante;
+    console.log( "nueva_apuesta antes");
+    console.log( this.apuestas );
     if ( !this.apuestas[ resultado ] ) {
 	this.apuestas[ resultado ] = [];
     }
     this.apuestas[ resultado ].push( apuesta );
+    console.log( "Despues" );
+    console.log( this.apuestas );
 }
 
 function crea_id ( local, visitante, competition, year ) {
@@ -33,6 +37,9 @@ function las_apuestas () {
 }
 
 function apuestas_para ( resultado ) {
+    console.log( "apuestas_para" );
+    console.log( resultado );
+    console.log( this.apuestas );
     return this.apuestas[ resultado ];
 }
 

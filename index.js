@@ -27,9 +27,8 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
     if ( !porras[esta_porra.ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
-
 	var esta_apuesta = 
-	    new apuesta.Apuesta( esta_porra, req.params.menda, 
+	    new apuesta.Apuesta( porras[esta_porra.ID], req.params.menda, 
 				 req.params.goles_local, 
 				 req.params.goles_visitante );
 	response.status(200).send( esta_apuesta );
@@ -77,6 +76,10 @@ app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, r
 	    response.status(404).send("No hay resultado para ese partido");
 	} else {
 	    var este_resultado = porras[esta_porra.ID].resultado;
+	    console.log ( porras );
+	    console.log (esta_porra.ID);
+	    console.log( "Resultado " + este_resultado );
+	    console.log(porras[esta_porra.ID].apuestas_para( este_resultado ));
 	    response.status(200).send( porras[esta_porra.ID].apuestas_para( este_resultado ) );
 	}
     }
