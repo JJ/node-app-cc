@@ -37,6 +37,7 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
     
 });
 
+// Pone el resultado de la porra
 app.post('/porra/resultado/:competition/:year/:local/:goles_local/:visitante/:goles_visitante', function( req, response ) {
     var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
 				     req.params.competition, req.params.year );
@@ -64,6 +65,23 @@ app.get('/porra/:ID', function(request, response) {
 	response.status(200).send( porras[esta_porra_ID] );
     }
 });
+
+// Recupera el ganador o ganadores de la porra
+app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, response ) {
+    var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
+				     req.params.competition, req.params.year );
+    if ( !porras[esta_porra.ID] ) {
+	response.status(404).send("No existe esa porra");
+    } else {
+	if ( !porras[esta_porra.ID].resultado ) {
+	    response.status(404).send("No hay resultado para ese partido");
+	} else {
+	    var este_resultado = porras[esta_porra.ID].resultado;
+	    response.status(200).send( porras[esta_porra.ID].apuestas_para( este_resultado ) );
+	}
+    }
+    
+});  
 
 // Escucha en un puerto determinado.
 app.listen(app.get('port'), server_ip_address, function() {

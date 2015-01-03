@@ -67,4 +67,18 @@ describe( "POST porra", function() {
 		done();
 	    });
     });
+    it('should return winners', function (done) {
+	request(app)
+	    .post('/porra/ganador/liga/2014/mad/bcn')
+	    .expect('Content-Type', /json/)
+	    .expect(200)
+	    .end( function ( error, resultado ) {
+		if ( error ) {
+		    return done( error );
+		}
+		resultado.body.should.exist;
+		done();
+	    });
+    });
+
 });
