@@ -76,10 +76,6 @@ app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, r
 	    response.status(404).send("No hay resultado para ese partido");
 	} else {
 	    var este_resultado = porras[esta_porra.ID].resultado;
-	    console.log ( porras );
-	    console.log (esta_porra.ID);
-	    console.log( "Resultado " + este_resultado );
-	    console.log(porras[esta_porra.ID].apuestas_para( este_resultado ));
 	    response.status(200).send( porras[esta_porra.ID].apuestas_para( este_resultado ) );
 	}
     }
