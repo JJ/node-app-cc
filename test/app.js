@@ -12,7 +12,7 @@ describe( "Crea porra y apuestas", function() {
     });
     it('should return ID', function (done) {
 	request(app)
-	    .put('/porra/mad/bcn/liga/2014')
+	    .put('/porra/liga/2014/mad/bcn')
 	    .expect('Content-Type', /json/)
 	    .expect(200)
 	    .end( function ( error, resultado ) {

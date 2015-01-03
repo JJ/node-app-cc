@@ -3,17 +3,18 @@
 var express = require('express');
 var app = express();
 
-// recuerda ejecutar antes grunt creadb
 var apuesta = require("./Apuesta.js");
 var porra = require("./Porra.js");
 
 var porras = new Object;
 
+// Establece el IP y el puerto dependiendo del PaaS que sea
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 app.set('port', (process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.put('/porra/:local/:visitante/:competition/:year', function( req, response ) {
+// Crea una porra
+app.put('/porra/:competition/:year/:local/:visitante', function( req, response ) {
     var nueva_porra = new porra.Porra(req.params.local,req.params.visitante,
 				      req.params.competition, req.params.year );
     porras[nueva_porra.ID] = nueva_porra;
