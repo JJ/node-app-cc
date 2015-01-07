@@ -8,7 +8,6 @@
 //* `competition` = competición: liga, copa, Champions, lo que sea
 //*  `year` = año para crear ID único de porra
 
-
 exports.Porra = function (local,visitante,competition,year) {
     this.local = local;
     this.visitante= visitante;
@@ -16,12 +15,18 @@ exports.Porra = function (local,visitante,competition,year) {
     this.year = year;
     this.apuestas = new Object;
     this.ID = crea_id( local,visitante,competition,year );
-    // functions
+    // métodos
+    this.vars = vars;
     this.nueva_apuesta = nueva_apuesta;
     this.las_apuestas = las_apuestas;
     this.inserta_db = inserta_db;
     this.crea_id = crea_id;
     this.apuestas_para = apuestas_para;
+}
+
+// Devuelve las variables de instancia
+function vars() {
+    return ['local','visitante','competition','year'];
 }
 
 // Añade una apuesta de tipo `Apuesta` a la porra
