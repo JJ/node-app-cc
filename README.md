@@ -1,7 +1,3 @@
----
-layout: index
----
-
 #Aplicación de ejemplo para el curso de nube
 
 ## Requisitos
