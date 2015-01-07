@@ -6,3 +6,4 @@
 * [ ] Añadir rutas estáticas con página principal, al menos.
 * [ ] Crear una rama para ficheros que no sean estrictamente de la aplicación
   * [ ] Como este :-)
+* [ ] Modificar el README.md, que todavía está el del ejemplo.
