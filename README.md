@@ -4,20 +4,26 @@
 
 1. Instalar grunt y mocha
 
+```
 	npm install -g grunt
 	npm install -g mocha
+```
 
 2. Crear la base de datos
 
+```
 	grunt creadb
+```
 
 
 
-# node-js-getting-started (original docs below)
+## Developed from node-js-getting-started (original docs below)
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
-This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+This application support the
+[Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+article - check it out.  
 
 ## Running Locally
 
