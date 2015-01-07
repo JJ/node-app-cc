@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Porra.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Apuesta.html">
+                Apuesta.js
+              </a>
+            
+              
+              <a class="source" href="Gruntfile.html">
+                Gruntfile.js
+              </a>
+            
+              
+              <a class="source" href="Porra.html">
+                Porra.js
+              </a>
+            
+              
+              <a class="source" href="index.html">
+                index.js
+              </a>
+            
+              
+              <a class="source" href="porredis.html">
+                porredis.js
+              </a>
+            
+              
+              <a class="source" href="prueba-assert.html">
+                prueba-assert.js
+              </a>
+            
+              
+              <a class="source" href="prueba.html">
+                prueba.js
+              </a>
+            
+              
+              <a class="source" href="redis.html">
+                redis.js
+              </a>
+            
+              
+              <a class="source" href="usa-db.html">
+                usa-db.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Porra.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-pi">"use strict"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Definición de la clase Porra: </p>
+<p>   var esta_porra = new Porra( local,visitante,competition,year);</p>
+<ul>
+<li><code>local, visitante</code> = equipos local y visitante</li>
+<li><code>competition</code> = competición: liga, copa, Champions, lo que sea</li>
+<li><code>year</code> = año para crear ID único de porra</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+
+exports.Porra = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(local,visitante,competition,year)</span> </span>{
+    <span class="hljs-keyword">this</span>.local = local;
+    <span class="hljs-keyword">this</span>.visitante= visitante;
+    <span class="hljs-keyword">this</span>.competition= competition;
+    <span class="hljs-keyword">this</span>.year = year;
+    <span class="hljs-keyword">this</span>.apuestas = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>;
+    <span class="hljs-keyword">this</span>.ID = crea_id( local,visitante,competition,year );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>functions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.nueva_apuesta = nueva_apuesta;
+    <span class="hljs-keyword">this</span>.las_apuestas = las_apuestas;
+    <span class="hljs-keyword">this</span>.inserta_db = inserta_db;
+    <span class="hljs-keyword">this</span>.crea_id = crea_id;
+    <span class="hljs-keyword">this</span>.apuestas_para = apuestas_para;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Añade una apuesta de tipo <code>Apuesta</code> a la porra</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nueva_apuesta</span><span class="hljs-params">( apuesta )</span> </span>{
+    <span class="hljs-keyword">var</span> resultado = apuesta.local + <span class="hljs-string">"-"</span> + apuesta.visitante;
+    <span class="hljs-keyword">if</span> ( !<span class="hljs-keyword">this</span>.apuestas[ resultado ] ) {
+	<span class="hljs-keyword">this</span>.apuestas[ resultado ] = [];
+    }
+    <span class="hljs-keyword">this</span>.apuestas[ resultado ].push( apuesta );
+
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Función única para crear el ID encadenando variables</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">crea_id</span> <span class="hljs-params">( local, visitante, competition, year )</span> </span>{
+    <span class="hljs-keyword">return</span> local+<span class="hljs-string">"-"</span>+visitante+<span class="hljs-string">"-"</span>+competition+<span class="hljs-string">"-"</span>+year;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Devuelve una estructura de datos con las apuestas</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">las_apuestas</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.apuestas;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Devuelve las apuestas para un resultado determinado. Igual que <code>porra.las_apuestas()[resultado]</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">apuestas_para</span> <span class="hljs-params">( resultado )</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.apuestas[ resultado ];
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Inserta la porra (sin apuestas) en una base de datos.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inserta_db</span><span class="hljs-params">( db, tabla )</span> </span>{
+    <span class="hljs-keyword">if</span> ( !db) {
+	<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"No se ha definido BD"</span>);
+    };
+    <span class="hljs-keyword">var</span> stmt = db.prepare(<span class="hljs-string">"INSERT INTO "</span>+ tabla + <span class="hljs-string">" VALUES (?, ?,?,?,?)"</span>);
+    stmt.run( <span class="hljs-keyword">this</span>.ID, <span class="hljs-keyword">this</span>.local, <span class="hljs-keyword">this</span>.visitante, <span class="hljs-keyword">this</span>.competition, <span class="hljs-keyword">this</span>.year );
+    stmt.finalize();
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
