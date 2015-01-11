@@ -1,19 +1,31 @@
 #Aplicación de ejemplo para el curso de nube
 
+## Intro
+
+Aplicación que implementa una porra deportiva. 
+
 ## Requisitos
 
 1. Instalar grunt y mocha
 
 ```
-	npm install -g grunt
+	npm install -g grunt-cli
 	npm install -g mocha
 ```
 
-2. Crear la base de datos
+2. Instalar dependencias
 
-```
-	grunt creadb
-```
+	npm install .
+
+3. Funciona en OpenShift o Heroku. Tras abrir la cuenta, push a cualquiera de ellos. Para ejecutar en local
+
+	npm start
+
+O, si se tiene instalado el Toolbelt de Heroku
+
+	foreman start web
+
+
 
 
 
