@@ -1,8 +1,14 @@
-#Aplicación de ejemplo para el curso de nube
+#Porr.io Aplicación de ejemplo para el curso de nube
+
+[![Build Status](https://travis-ci.org/JJ/node-app-cc.svg?branch=master)](https://travis-ci.org/JJ/node-app-cc)
 
 ## Intro
 
-Aplicación que implementa una porra deportiva. 
+Aplicación que implementa una porra deportiva. Tiene dos clases,
+[Porra](http://jj.github.io/node-app-cc/docs/Porra.html) y
+[Apuesta](http://jj.github.io/node-app-cc/docs/Apuesta.html) y [una
+aplicación basada en express.js](http://jj.github.io/node-app-cc/docs/index.html). 
+
 
 ## Requisitos
 
