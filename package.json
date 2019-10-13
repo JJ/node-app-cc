@@ -10,7 +10,7 @@
   "main": "./index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node index.js"
+    "start": "pm2 start index.js -i 4"
   },
   "dependencies": {
     "express": "~4.9.x",
