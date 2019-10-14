@@ -13,11 +13,13 @@
     "start": "pm2 start index.js -i 4"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "node-redis": "^0.1.7",
-    "pg": ">=4.5.7",
-    "redis": "^0.12.1",
-    "url": "^0.10.1"
+      "express": "^4.17.1",
+      "node-redis": "^0.1.7",
+      "pg": ">=4.5.7",
+      "redis": "^0.12.1",
+      "url": "^0.10.1",
+      "sqlite3": "^4.1.0",
+
   },
   "devDependencies": {
     "assert": "^1.1.2",
@@ -27,7 +29,6 @@
     "gulp-mocha": "^7.0.2",
     "mocha": "^6",
     "should": "^4.4.2",
-    "sqlite3": "^4.1.0",
     "supertest": "^0.15.0"
   },
   "keywords": [
