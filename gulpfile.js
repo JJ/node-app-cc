@@ -1,6 +1,7 @@
 const gulp  = require('gulp');
 const mocha = require('gulp-mocha');
 const pm2   = require('pm2');
+var shell = require('gulp-shell');
 
 gulp.task('test', () => (
     gulp.src('test/porra.js', {read: false})
@@ -21,3 +22,5 @@ gulp.task('start', function () {
        });
   });
 });
+
+gulp.task('stop', shell.task(['pm2 stop Porra' ]));

@@ -26,6 +26,7 @@
     "grunt-shell": "^1.1.1",
     "gulp": "^4.0.2",
     "gulp-mocha": "^7.0.2",
+    "gulp-shell": "^0.7.1",
     "mocha": "^6",
     "pm2": "^4.0.0",
     "should": "^4.4.2",
