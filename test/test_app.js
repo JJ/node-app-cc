@@ -23,7 +23,7 @@ describe( "Crea porra y apuestas", function() {
 		done();
 	    });
     });
-    it('should return 1 bet', function (done) {
+    it('should return 2 bets', function (done) {
 	request(app)
 	    .get('/porras')
 	    .expect('Content-Type', /json/)
@@ -33,6 +33,8 @@ describe( "Crea porra y apuestas", function() {
 		    return done( error );
 		}
 		resultado.body.should.not.be.empty;
+		console.log("Keys ", Object.keys(resultado.body));
+		Object.keys(resultado.body).length.should.be.eql(2);
 		done();
 	    });
     });
