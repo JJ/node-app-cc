@@ -22,6 +22,8 @@ exports.Porra = function (local,visitante,competition,year) {
     this.inserta_db = inserta_db;
     this.crea_id = crea_id;
     this.apuestas_para = apuestas_para;
+    this.resultado = null;
+    this.ganadores = ganadores;
 }
 
 // Devuelve las variables de instancia
@@ -53,6 +55,13 @@ function las_apuestas () {
 function apuestas_para ( resultado ) {
     return this.apuestas[ resultado ];
 }
+
+// Devuelve las apuestas para un resultado determinado. Igual que `porra.las_apuestas()[resultado]`
+function ganadores() {
+    return this.apuestas[ this.resultado ];
+}
+
+
 
 // Inserta la porra (sin apuestas) en una base de datos.
 function inserta_db( db, tabla ) {
