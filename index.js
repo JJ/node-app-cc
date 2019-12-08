@@ -46,7 +46,6 @@ app.post('/porra/resultado/:competition/:year/:local/:goles_local/:visitante/:go
 	response.status(404).send("No existe esa porra");
     } else {
 	porras[esta_porra.ID].resultado = req.params.goles_local + "-" + req.params.goles_visitante;
-	console.log("Todas porras = ", porras );
 	response.status(200).send( porras[esta_porra.ID] );
     }
     
@@ -72,9 +71,6 @@ app.get('/porra/:ID', function(request, response) {
 app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, response ) {
     var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
 				     req.params.competition, req.params.year );
-    console.log("Porra en Ganador = ", esta_porra );
-    console.log("Todas porras = ", porras );
-    console.log("Esta porra = ", porras[esta_porra.ID] );
     if ( !porras[esta_porra.ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {

@@ -32,7 +32,6 @@ describe( "Crea porra y apuestas", function() {
 		if ( error ) {
 		    return done( error );
 		}
-		console.log(resultado.body);
 		resultado.body.should.not.be.empty;
 		done();
 	    });
@@ -99,7 +98,6 @@ describe( "Crea porra y apuestas", function() {
 		if ( error ) {
 		    return done( error );
 		}
-		console.log( "Winners", resultado.body );
 		resultado.body.should.have.length(2);
 		done();
 	    });
