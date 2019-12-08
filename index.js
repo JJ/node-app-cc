@@ -5,7 +5,9 @@ var app = express();
 
 var apuesta = require("./Apuesta.js");
 var porra = require("./Porra.js");
+var crea_id = porra.crea_id;
 
+// Por esto no se puede usar en paralelo, porque sólo hay un objeto.
 var porras = new Object;
 
 // Establece el IP y el puerto dependiendo del PaaS que sea
@@ -23,16 +25,16 @@ app.put('/porra/:competition/:year/:local/:visitante', function( req, response )
 
 
 app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:goles_visitante', function( req, response ) {
-    var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
-				     req.params.competition, req.params.year );
-    if ( !porras[esta_porra.ID] ) {
+    var ID = crea_id(req.params.local,req.params.visitante,
+		     req.params.competition, req.params.year );
+    if ( !porras[ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
 	var esta_apuesta = 
-	    new apuesta.Apuesta( porras[esta_porra.ID], req.params.menda, 
+	    new apuesta.Apuesta( porras[ID], req.params.menda, 
 				 req.params.goles_local, 
 				 req.params.goles_visitante );
-	porras[esta_porra.ID].apuestas[req.params.menda] = esta_apuesta;
+	porras[ID].apuestas[req.params.menda] = esta_apuesta;
 	response.status(200).send( esta_apuesta );
     }
     

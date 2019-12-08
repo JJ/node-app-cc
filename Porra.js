@@ -26,6 +26,8 @@ exports.Porra = function (local,visitante,competition,year) {
     this.ganadores = ganadores;
 }
 
+exports.crea_id = crea_id;
+
 // Devuelve las variables de instancia
 function vars() {
     return ['local','visitante','competition','year'];
