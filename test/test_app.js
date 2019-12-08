@@ -23,6 +23,20 @@ describe( "Crea porra y apuestas", function() {
 		done();
 	    });
     });
+    it('should return 1 bet', function (done) {
+	request(app)
+	    .get('/porras')
+	    .expect('Content-Type', /json/)
+	    .expect(200)
+	    .end( function ( error, resultado ) {
+		if ( error ) {
+		    return done( error );
+		}
+		console.log(resultado.body);
+		resultado.body.should.not.be.empty;
+		done();
+	    });
+    });
     it('should create bet correctly', function (done) {
 	request(app)
 	    .put('/apuesta/porrio/liga/2014/mad/2/bcn/2')

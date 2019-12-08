@@ -23,8 +23,10 @@ app.put('/porra/:competition/:year/:local/:visitante', function( req, response )
 
 
 app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:goles_visitante', function( req, response ) {
+    console.log("Params", req.params);
     var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
-				      req.params.competition, req.params.year );
+				     req.params.competition, req.params.year );
+    console.log("Esta porra ", esta_porra);
     if ( !porras[esta_porra.ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
@@ -32,12 +34,13 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
 	    new apuesta.Apuesta( porras[esta_porra.ID], req.params.menda, 
 				 req.params.goles_local, 
 				 req.params.goles_visitante );
+	porras[esta_porra.ID].apuestas[req.params.menda] = esta_apuesta;
 	response.status(200).send( esta_apuesta );
     }
     
 });
 
-// Pone el resultado de la porra
+// Establece el resultado de la porra
 app.post('/porra/resultado/:competition/:year/:local/:goles_local/:visitante/:goles_visitante', function( req, response ) {
     var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
 				     req.params.competition, req.params.year );
