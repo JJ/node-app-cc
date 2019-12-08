@@ -42,13 +42,13 @@ app.put('/apuesta/:menda/:competition/:year/:local/:goles_local/:visitante/:gole
 
 // Establece el resultado de la porra
 app.post('/porra/resultado/:competition/:year/:local/:goles_local/:visitante/:goles_visitante', function( req, response ) {
-    var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
+    var ID = crea_id(req.params.local,req.params.visitante,
 				     req.params.competition, req.params.year );
-    if ( !porras[esta_porra.ID] ) {
+    if ( !porras[ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
-	porras[esta_porra.ID].resultado = req.params.goles_local + "-" + req.params.goles_visitante;
-	response.status(200).send( porras[esta_porra.ID] );
+	porras[ID].resultado = req.params.goles_local + "-" + req.params.goles_visitante;
+	response.status(200).send( porras[ID] );
     }
     
 });  
