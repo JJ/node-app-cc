@@ -71,15 +71,15 @@ app.get('/porra/:ID', function(request, response) {
 
 // Recupera el ganador o ganadores de la porra
 app.get('/porra/ganador/:competition/:year/:local/:visitante/', function( req, response ) {
-    var esta_porra = new porra.Porra(req.params.local,req.params.visitante,
-				     req.params.competition, req.params.year );
-    if ( !porras[esta_porra.ID] ) {
+    var ID= crea_id(req.params.local,req.params.visitante,
+		    req.params.competition, req.params.year );
+    if ( !porras[ID] ) {
 	response.status(404).send("No existe esa porra");
     } else {
-	if ( !porras[esta_porra.ID].resultado ) {
+	if ( !porras[ID].resultado ) {
 	    response.status(404).send("No hay resultado para ese partido");
 	} else {
-	    response.status(200).send( porras[esta_porra.ID].ganadores() );
+	    response.status(200).send( porras[ID].ganadores() );
 	}
     }
     
