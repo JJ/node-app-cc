@@ -99,7 +99,8 @@ describe( "Crea porra y apuestas", function() {
 		if ( error ) {
 		    return done( error );
 		}
-		resultado.body.should.exist;
+		console.log( "Winners", resultado.body );
+		resultado.body.should.have.length(2);
 		done();
 	    });
     });
