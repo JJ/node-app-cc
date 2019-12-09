@@ -74,8 +74,9 @@ describe('Establece resultado', function(){
 	    assert.equal(esta_porra.resultado,"3-2", "Resultado OK" );
 	});
 	it('should retrieve winners correctly', function() {
-	    var winners = esta_porra.ganadores();
-	    console.log(winners);
+	  var winners = esta_porra.ganadores();
+          winners.should.not.be.null;
+          winners[0].as_string().should.be.eql( 'Notas: 3-2' );
 	});
     });
 });
