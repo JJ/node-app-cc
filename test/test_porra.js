@@ -1,6 +1,8 @@
 var assert = require("assert"),
-apuesta = require(__dirname+"/../lib/Apuesta.js"),
-porra = require(__dirname+"/../lib/Porra.js");
+    should = require("should"),
+    porra = require(__dirname+"/../lib/Porra.js");
+
+const { Apuesta } = require(__dirname+"/../lib/Apuesta.js");
 
 // Variable global
 var esta_porra;
@@ -12,7 +14,6 @@ describe('Porra', function(){
 	it('Debería estar cargado el módulo', function(){
 	    assert(porra, "Cargado");
 	});
-	
     });
 
     describe('ID', function(){
@@ -35,19 +36,19 @@ describe('Apuesta', function(){
     // Testea que se haya cargado bien la librería
     describe('Carga', function(){
 	it('should be loaded', function(){
-	    assert(apuesta, "Cargado");
+          Apuesta.should.not.be.null;
 	});
 	
     });
     describe('Crea', function(){
 	it('should create apuestas correctly', function(){
-	    var nueva_apuesta = new apuesta.Apuesta(esta_porra, 'Menda','2','3');
-	    assert.equal(nueva_apuesta.as_string(), "Menda: 2-3","Creado");
+	  var nueva_apuesta = new Apuesta(esta_porra, 'Menda','2','3');
+	  assert.equal(nueva_apuesta.as_string(), "Menda: 2-3","Creado");
 	});
     });
     describe('Crea', function(){
 	it('should create apuestas correctly again', function(){
-	    var nueva_apuesta = new apuesta.Apuesta(esta_porra, 'Lerenda','3','3');
+	    var nueva_apuesta = new Apuesta(esta_porra, 'Lerenda','3','3');
 	    assert.equal(nueva_apuesta.as_string(), "Lerenda: 3-3","Creado");
 	});
     });
@@ -58,7 +59,7 @@ describe('Añadiendo apuestas', function(){
     // Testea que se haya cargado bien la librería
     describe('Añade', function(){
 	it('should add apuestas correctly', function(){
-	    var otra_apuesta =  new apuesta.Apuesta(esta_porra, 'Notas','3','2');
+	    var otra_apuesta =  new Apuesta(esta_porra, 'Notas','3','2');
 	    assert(esta_porra.apuestas_para("3-2"), "Creado");
 	});
 
