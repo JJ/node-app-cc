@@ -1,6 +1,6 @@
 var assert = require("assert"),
-apuesta = require(__dirname+"/../Apuesta.js"),
-porra = require(__dirname+"/../Porra.js");
+apuesta = require(__dirname+"/../lib/Apuesta.js"),
+porra = require(__dirname+"/../lib/Porra.js");
 
 // Variable global
 var esta_porra;

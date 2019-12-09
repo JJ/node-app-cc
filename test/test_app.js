@@ -1,6 +1,6 @@
 var request = require('supertest'), 
 should = require('should'),
-app = require('../index.js'),
+app = require('../lib/index.js'),
 want_id = "mad-bcn-liga-2014";
 
 describe( "Crea porra y apuestas", function() {
