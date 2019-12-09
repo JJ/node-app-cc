@@ -24,19 +24,18 @@ describe( "Crea porra y apuestas", function() {
 	    });
     });
     it('should return 2 bets', function (done) {
-	request(app)
-	    .get('/porras')
-	    .expect('Content-Type', /json/)
-	    .expect(200)
-	    .end( function ( error, resultado ) {
-		if ( error ) {
-		    return done( error );
-		}
-		resultado.body.should.not.be.empty;
-		console.log("Keys ", Object.keys(resultado.body));
-		Object.keys(resultado.body).length.should.be.eql(2);
-		done();
-	    });
+      request(app)
+      .get('/porras')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end( function ( error, resultado ) {
+	if ( error ) {
+	  return done( error );
+	}
+	resultado.body.should.not.be.empty;
+	Object.keys(resultado.body).length.should.be.eql(2);
+	done();
+      });
     });
     it('should create bet correctly', function (done) {
 	request(app)
