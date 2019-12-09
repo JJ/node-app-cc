@@ -10,14 +10,23 @@ var esta_porra = new porra.Porra( "Marajena", "Gualchos", "Provincial", "2014"),
 
 // si se quiere probar la base de datos, ejecutar antes `grunt creadb`
 describe('Porras', function(){
-    // Testea que se haya cargado bien la librería
-    describe('Carga', function(){
-	it('Debería estar cargado el módulo', function( done ){
-	    Porras.should.not.be.null;
-	    done();
-	});
-	
+  // Testea que se haya cargado bien la librería
+  describe('Carga', function(){
+    it('Debería estar cargado el módulo', function( done ){
+      Porras.should.not.be.null;
+      estas_porras.should.not.be.null;
+      done();
     });
+  });
+
+  describe('Añade', function(){
+    it('Should add new bet', function( done ){
+      estas_porras.nueva( esta_porra );
+      console.log(estas_porras);
+      estas_porras.porra(esta_porra.ID).should.not.be.null;
+      done();
+    });
+  });
 
 });
 
