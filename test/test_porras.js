@@ -25,9 +25,21 @@ describe('Porras', function(){
       const porra = estas_porras.porra(esta_porra.ID)
       porra.should.not.be.null;
       should.deepEqual( porra, esta_porra, "Insertado igual a almacenado" );
+      estas_porras.apuesta(esta_porra, "XYZ", 2,2 );
+      estas_porras.porra(esta_porra.ID).apuestas["XYZ"].as_string().should.be.eql("XYZ: 2-2");
       done();
     });
   });
+
+  describe('Resultado', function() {
+     it('Should set result correctly', function( done ){
+      estas_porras.nueva( esta_porra );
+      const porra = estas_porras.porra(esta_porra.ID)
+      porra.should.not.be.null;
+      should.deepEqual( porra, esta_porra, "Insertado igual a almacenado" );
+      done();
+    });
+  })
 
 });
 
