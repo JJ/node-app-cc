@@ -22,8 +22,9 @@ describe('Porras', function(){
   describe('Añade', function(){
     it('Should add new bet', function( done ){
       estas_porras.nueva( esta_porra );
-      console.log(estas_porras);
-      estas_porras.porra(esta_porra.ID).should.not.be.null;
+      const porra = estas_porras.porra(esta_porra.ID)
+      porra.should.not.be.null;
+      should.deepEqual( porra, esta_porra, "Insertado igual a almacenado" );
       done();
     });
   });
