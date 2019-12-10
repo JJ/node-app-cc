@@ -23,7 +23,6 @@ describe('FSDator', function(){
 	it('Debería crear correctamente el directorio', function( done ){
 	    dator.nueva(esta_porra);
 	    var folder = dator.folder;
-	    console.log(folder);
 	    fs.lstatSync(`${ folder }/${ esta_porra.year }/${ esta_porra.competition }/${ esta_porra.local }/${ esta_porra.visitante }/`).isDirectory().should.be.ok;
 	    done();
 	});

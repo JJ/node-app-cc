@@ -1,0 +1,10 @@
+execution:
+- concurrency: 3
+  ramp-up: 10s
+  hold-for: 50s
+  scenario: quick-test
+
+scenarios:
+  quick-test:
+    requests:
+    - http://localhost:5000/porras
