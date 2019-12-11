@@ -63,16 +63,19 @@ describe('Probando apuestas', function( done ){
 
 
 describe('Recupera todas', function(){
-    describe('Añade nueva porra', function(){
-	it('Debería crear correctamente el directorio', function( done ){
-	    const nueva_porra = new porra.Porra( "Ceres", "Plutón", "Solar", "2033");
-	    comprueba_porra( dator, nueva_porra );
-	    done();
-	});
+  describe('Añade nueva porra', function(){
+
+    it('Debería crear correctamente el directorio', function( ){
+      const nueva_porra = new porra.Porra( "Ceres", "Plutón", "Solar", "2033");
+      comprueba_porra( dator, nueva_porra );
     });
 
-    describe('Todas las porras', function() {
-	var todas_porras = dator.todas();
+    it('Debería leer correctamente el directorio', function( ){
+
+      fs.readdirSync(dator.folder ).length.should.not.eql(0);
+      var todas_porras = dator.todas();
+      todas_porras.length.should.be.eql(2);
+      });
     });
 });
 
@@ -80,6 +83,5 @@ function comprueba_porra( dator, nueva_porra ) {
   dator.nueva(nueva_porra);
   var folder = dator.folder;
   fs.readdirSync(folder ).length.should.not.eql(0);
-    fs.lstatSync(`${ folder }/${ nueva_porra.year }/${ nueva_porra.competition }/${ nueva_porra.local }/${ nueva_porra.visitante }/`).isDirectory().should.be.ok;
-
+  fs.lstatSync(`${ folder }/${ nueva_porra.year }/${ nueva_porra.competition }/${ nueva_porra.local }/${ nueva_porra.visitante }/`).isDirectory().should.be.ok;
 }
