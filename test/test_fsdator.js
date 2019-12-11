@@ -53,3 +53,9 @@ describe('Probando apuestas', function(){
 	});
     });
 });
+
+describe('Probando apuestas', function( done ){
+    it('Debería poner el resultado correctamente', function( done ) {
+	dator.resultado( esta_porra.ID, 3, 2 );
+    });
+});
