@@ -43,41 +43,21 @@ describe('Apuesta', function(){
     describe('Crea', function(){
 	it('should create apuestas correctly', function(){
 	  const nueva_apuesta = new Apuesta(esta_porra, 'Menda','2','3');
-	  assert.equal(nueva_apuesta.as_string(), "Menda: 2-3","Creado");
+	    assert.equal(nueva_apuesta.as_string(),
+			 "Marajena-Gualchos-Provincial-2014 → Menda: 2-3",
+			 "Creado");
 	});
     });
     describe('Crea', function(){
 	it('should create apuestas correctly again', function(){
 	    const nueva_apuesta = new Apuesta(esta_porra, 'Lerenda','3','3');
-	    assert.equal(nueva_apuesta.as_string(), "Lerenda: 3-3","Creado");
+	    assert.equal(nueva_apuesta.as_string(),
+			 "Marajena-Gualchos-Provincial-2014 → Lerenda: 3-3",
+			 "Creado");
 	});
     });
 
 });
 
-describe('Añadiendo apuestas', function(){
-    // Testea que se haya cargado bien la librería
-    describe('Añade', function(){
-	it('should add apuestas correctly', function(){
-	    const otra_apuesta =  new Apuesta(esta_porra, 'Notas','3','2');
-	    assert(esta_porra.apuestas_para("3-2"), "Creado");
-	});
 
-    });
-});
-
-describe('Establece resultado', function(){
-    // Pone resultado y recupera
-    describe('Resultado', function(){
-	it('should set result correctly', function(){
-	    esta_porra.resultado = "3-2";
-	    assert.equal(esta_porra.resultado,"3-2", "Resultado OK" );
-	});
-	it('should retrieve winners correctly', function() {
-	  var winners = esta_porra.ganadores();
-          winners.should.not.be.null;
-          winners[0].as_string().should.be.eql( 'Notas: 3-2' );
-	});
-    });
-});
 
