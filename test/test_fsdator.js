@@ -8,7 +8,7 @@ const { FSDator } =  require(__dirname+"/../lib/FSDator.js");
 var dator = new FSDator();
 var esta_porra = new porra.Porra( "Marajena", "Gualchos", "Provincial", "2014");
 
-// si se quiere probar la base de datos, ejecutar antes `grunt creadb`
+// Este comentario no tiene nada que ver con nada
 describe('FSDator', function(){
   // Testea que se haya cargado bien la librería
     describe('Carga', function(){
@@ -22,9 +22,7 @@ describe('FSDator', function(){
 
     describe('Crea', function(){
 	it('Debería crear correctamente el directorio', function( done ){
-	    dator.nueva(esta_porra);
-	    var folder = dator.folder;
-	    fs.lstatSync(`${ folder }/${ esta_porra.year }/${ esta_porra.competition }/${ esta_porra.local }/${ esta_porra.visitante }/`).isDirectory().should.be.ok;
+	    comprueba_porra( dator, esta_porra );
 	    done();
 	});
     });
@@ -61,5 +59,21 @@ describe('Probando apuestas', function( done ){
 	porra_recuperada.should.have.property("resultado").and.be.eql("3-2");
 	done();
     });
-    
 });
+
+
+describe('Recupera todas', function(){
+    describe('Añade nueva porra', function(){
+	it('Debería crear correctamente el directorio', function( done ){
+	    const nueva_porra = new porra.Porra( "Ceres", "Plutón", "Solar", "2033");
+	    comprueba_porra( dator, nueva_porra );
+	    done();
+	});
+    });
+});
+
+function comprueba_porra( dator, nueva_porra ) {
+    dator.nueva(nueva_porra);
+    var folder = dator.folder;
+    fs.lstatSync(`${ folder }/${ nueva_porra.year }/${ nueva_porra.competition }/${ nueva_porra.local }/${ nueva_porra.visitante }/`).isDirectory().should.be.ok;
+}
