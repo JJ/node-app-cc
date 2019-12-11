@@ -42,13 +42,13 @@ describe('Apuesta', function(){
     });
     describe('Crea', function(){
 	it('should create apuestas correctly', function(){
-	  var nueva_apuesta = new Apuesta(esta_porra, 'Menda','2','3');
+	  const nueva_apuesta = new Apuesta(esta_porra, 'Menda','2','3');
 	  assert.equal(nueva_apuesta.as_string(), "Menda: 2-3","Creado");
 	});
     });
     describe('Crea', function(){
 	it('should create apuestas correctly again', function(){
-	    var nueva_apuesta = new Apuesta(esta_porra, 'Lerenda','3','3');
+	    const nueva_apuesta = new Apuesta(esta_porra, 'Lerenda','3','3');
 	    assert.equal(nueva_apuesta.as_string(), "Lerenda: 3-3","Creado");
 	});
     });
@@ -59,7 +59,7 @@ describe('Añadiendo apuestas', function(){
     // Testea que se haya cargado bien la librería
     describe('Añade', function(){
 	it('should add apuestas correctly', function(){
-	    var otra_apuesta =  new Apuesta(esta_porra, 'Notas','3','2');
+	    const otra_apuesta =  new Apuesta(esta_porra, 'Notas','3','2');
 	    assert(esta_porra.apuestas_para("3-2"), "Creado");
 	});
 
