@@ -19,16 +19,18 @@ describe('Porras', function(){
     });
   });
 
-  describe('Añade', function(){
-    it('Should add new bet', function( done ){
-      estas_porras.nueva( esta_porra );
-      const porra = estas_porras.porra(esta_porra.ID)
-      porra.should.not.be.null;
-      should.deepEqual( porra, esta_porra, "Insertado igual a almacenado" );
-      estas_porras.apuesta(esta_porra, "XYZ", 2,2 );
-      estas_porras.porra(esta_porra.ID).apuestas["XYZ"].as_string().should.be.eql("XYZ: 2-2");
-      done();
-    });
+  describe('Añade porra', function(){
+      it('Should add new porra', function(){
+	  estas_porras.nueva( esta_porra );
+	  const porra = estas_porras.porra(esta_porra.ID)
+	  porra.should.not.be.null;
+	  should.deepEqual( porra, esta_porra, "Insertado igual a almacenado" );
+      });
+      it('Debería añadir nueva apuesta a la porra', function( done ) {
+	  estas_porras.apuesta(esta_porra, "XYZ", 2,2 );
+	  estas_porras.porra(esta_porra.ID).apuestas["XYZ"].as_string().should.be.eql("Marajena-Gualchos-Provincial-2014 → XYZ: 2-2");
+	  done();
+      });
   });
 
   describe('Resultado', function() {
