@@ -70,6 +70,10 @@ describe('Recupera todas', function(){
 	    done();
 	});
     });
+
+    describe('Todas las porras', function() {
+	var todas_porras = dator.todas();
+    });
 });
 
 function comprueba_porra( dator, nueva_porra ) {
