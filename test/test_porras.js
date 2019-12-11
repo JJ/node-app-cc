@@ -42,7 +42,7 @@ describe('Porras', function(){
        estas_porras.resultado( esta_porra.ID, 2,2 );
 	 var winners = estas_porras.ganadores(esta_porra.ID);
 	 console.log(winners);
-       winners[0].as_string().should.be.eql( 'Marajena-Gualchos-Provincial-2014 →XYZ: 2-2' );
+	 should.deepEqual(winners,['XYZ']);
        done();
      });
   })
