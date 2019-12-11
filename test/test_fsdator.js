@@ -32,11 +32,23 @@ describe('FSDator', function(){
     describe('Recupera', function(){
 	it('Debería recuperar correctamente la porra', function( done ){
 	    const porra_recuperada = dator.porra( esta_porra.ID );
-	    console.log(porra_recuperada);
 	    porra_recuperada.should.have.property('ID').and.be.eql( esta_porra.ID );
 	    should.deepEqual( porra_recuperada, esta_porra );
 	    done();
 	});
     });
+
 });
 
+describe('Probando apuestas', function(){
+  // Testea que se haya cargado bien la librería
+    describe('Crea', function(){
+	it('Debería poder crear una apuesta', function( done ){
+	    dator.apuesta( esta_porra, "foo", 2,3 );
+	    dator.apuesta( esta_porra, "bar", 3,2 );
+	    const porra_recuperada = dator.porra( esta_porra.ID );
+	    console.log( porra_recuperada );
+	    done();
+	});
+    });
+});
