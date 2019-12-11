@@ -28,5 +28,13 @@ describe('FSDator', function(){
 	    done();
 	});
     });
+
+    describe('Recupera', function(){
+	it('Debería recuperar correctamente la porra', function( done ){
+	    const porra_recuperada = dator.porra( esta_porra.ID );
+	    console.log( porra_recuperada );
+	    done();
+	});
+    });
 });
 

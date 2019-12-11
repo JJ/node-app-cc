@@ -41,7 +41,6 @@ describe('Porras', function(){
        should.deepEqual( porra, esta_porra, "Insertado igual a almacenado" );
        estas_porras.resultado( esta_porra.ID, 2,2 );
 	 var winners = estas_porras.ganadores(esta_porra.ID);
-	 console.log(winners);
 	 should.deepEqual(winners,['XYZ']);
        done();
      });
