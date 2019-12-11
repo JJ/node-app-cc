@@ -15,6 +15,7 @@ describe('FSDator', function(){
 	it('Debería estar cargado el módulo', function( done ){
 	    FSDator.should.not.be.null;
 	    dator.should.not.be.null;
+	    esta_porra.should.not.be.null;
 	    done();
 	});
     });
