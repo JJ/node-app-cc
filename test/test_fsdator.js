@@ -77,7 +77,9 @@ describe('Recupera todas', function(){
 });
 
 function comprueba_porra( dator, nueva_porra ) {
-    dator.nueva(nueva_porra);
-    var folder = dator.folder;
+  dator.nueva(nueva_porra);
+  var folder = dator.folder;
+  fs.readdirSync(folder ).length.should.not.eql(0);
     fs.lstatSync(`${ folder }/${ nueva_porra.year }/${ nueva_porra.competition }/${ nueva_porra.local }/${ nueva_porra.visitante }/`).isDirectory().should.be.ok;
+
 }
