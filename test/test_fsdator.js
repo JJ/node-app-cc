@@ -32,7 +32,9 @@ describe('FSDator', function(){
     describe('Recupera', function(){
 	it('Debería recuperar correctamente la porra', function( done ){
 	    const porra_recuperada = dator.porra( esta_porra.ID );
-	    console.log( porra_recuperada );
+	    console.log(porra_recuperada);
+	    porra_recuperada.should.have.property('ID').and.be.eql( esta_porra.ID );
+	    should.deepEqual( porra_recuperada, esta_porra );
 	    done();
 	});
     });
