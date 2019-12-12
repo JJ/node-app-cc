@@ -71,12 +71,11 @@ describe('Recupera todas', function(){
     });
 
     it('Debería leer correctamente el directorio', function( ){
-
       fs.readdirSync(dator.folder ).length.should.not.eql(0);
       var todas_porras = dator.todas();
       todas_porras.length.should.be.eql(2);
-      });
     });
+  });
 });
 
 function comprueba_porra( dator, nueva_porra ) {
