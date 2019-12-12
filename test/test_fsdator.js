@@ -40,25 +40,31 @@ describe('FSDator', function(){
 
 describe('Probando apuestas', function(){
   // Testea que se haya cargado bien la librería
-    describe('Crea', function(){
-	it('Debería poder crear una apuesta', function( done ){
-	    dator.apuesta( esta_porra, "foo", 2,3 );
-	    dator.apuesta( esta_porra, "bar", 3,2 );
-	    const porra_recuperada = dator.porra( esta_porra.ID );
-	    Object.keys(porra_recuperada.apuestas).length.should.be.eql(2);
-	    porra_recuperada.apuestas['foo'].should.have.property("porraID").and.be.eql(porra_recuperada.ID);
-	    done();
-	});
+  describe('Crea', function(){
+    it('Debería poder crear una apuesta', function( done ){
+      dator.apuesta( esta_porra, "foo", 2,3 );
+      dator.apuesta( esta_porra, "bar", 3,2 );
+      const porra_recuperada = dator.porra( esta_porra.ID );
+      Object.keys(porra_recuperada.apuestas).length.should.be.eql(2);
+      porra_recuperada.apuestas['foo'].should.have.property("porraID").and.be.eql(porra_recuperada.ID);
+      console.log( porra_recuperada );
+      porra_recuperada.apostadores['2-3'].should.not.be.null;
+      done();
     });
+  });
 });
 
 describe('Probando apuestas', function( done ){
-    it('Debería poner el resultado correctamente', function( done ) {
-	dator.resultado( esta_porra.ID, 3, 2 );
-	const porra_recuperada = dator.porra( esta_porra.ID );
-	porra_recuperada.should.have.property("resultado").and.be.eql("3-2");
-	done();
-    });
+  it('Debería poner el resultado correctamente', function(  ) {
+    dator.resultado( esta_porra.ID, 3, 2 );
+    const porra_recuperada = dator.porra( esta_porra.ID );
+    porra_recuperada.should.have.property("resultado").and.be.eql("3-2");
+  });
+  it('Debería recuperar los ganadores', function( done ) {
+    dator.ganadores( esta_porra.ID ).should.not.be.null;
+    done();
+  });
+  
 });
 
 
