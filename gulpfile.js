@@ -15,7 +15,7 @@ gulp.task('start', function () {
       name: 'Porra',
       script: 'lib/index.js',
       exec_mode: 'cluster',
-      instances: 4
+      instances: 14
     }, function () {
          console.log('Arranca porra');
          pm2.streamLogs('all', 0);
