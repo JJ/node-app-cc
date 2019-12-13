@@ -47,7 +47,6 @@ describe('Probando apuestas', function(){
       const porra_recuperada = dator.porra( esta_porra.ID );
       Object.keys(porra_recuperada.apuestas).length.should.be.eql(2);
       porra_recuperada.apuestas['foo'].should.have.property("porraID").and.be.eql(porra_recuperada.ID);
-      console.log( porra_recuperada );
       porra_recuperada.apostadores['2-3'].should.not.be.null;
       done();
     });
