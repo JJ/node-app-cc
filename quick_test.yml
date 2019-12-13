@@ -8,3 +8,4 @@ scenarios:
   quick-test:
     requests:
     - http://localhost:5000/porras
+    - http://localhost:5000/porra/SEV-BET-Copa-2012
