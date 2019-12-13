@@ -13,7 +13,7 @@ gulp.task('start', function () {
   pm2.connect(true, function () {
     pm2.start({
       name: 'Porra',
-      script: 'index.js',
+      script: 'lib/index.js',
       exec_mode: 'cluster',
       instances: 4
     }, function () {
