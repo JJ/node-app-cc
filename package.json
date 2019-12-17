@@ -9,7 +9,7 @@
   },
   "main": "./index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --exit",
     "start": "pm2 start index.js -i 4"
   },
   "dependencies": {
