@@ -7,18 +7,19 @@
     "type": "git",
     "url": "git://github.com/JJ/node-app-cc.git"
   },
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha --exit",
-    "start": "pm2 start index.js -i 4"
+      "test": "mocha --exit",
+      "start": "pm2 start lib/index.js -i 4",
+      "stop": "pm2 stop index"
   },
   "dependencies": {
     "express": "^4.17.1",
     "node-redis": "^0.1.7",
     "pg": ">=4.5.7",
     "redis": "^0.12.1",
-    "url": "^0.10.1",
-    "sqlite3": "^4.1.0"
+    "sqlite3": "^4.1.0",
+    "url": "^0.10.1"
   },
   "devDependencies": {
     "assert": "^1.1.2",

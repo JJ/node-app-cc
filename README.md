@@ -1,4 +1,4 @@
-#Porr.io Aplicación de ejemplo para el curso de nube
+# Porr.io Aplicación de ejemplo para el curso de nube
 
 [![Build Status](https://travis-ci.org/JJ/node-app-cc.svg?branch=master)](https://travis-ci.org/JJ/node-app-cc)
 
@@ -14,23 +14,27 @@ aplicación basada en express.js](http://jj.github.io/node-app-cc/docs/index.htm
 
 1. Instalar grunt y mocha
 
-```
-	npm install -g grunt-cli
-	npm install -g mocha
+```shell
+npm install -g grunt-cli mocha
 ```
 
 2. Instalar dependencias
 
-	npm install .
+```shell
+npm install .
+```
 
-3. Funciona en OpenShift o Heroku. Tras abrir la cuenta, push a cualquiera de ellos. Para ejecutar en local
+3. Funciona en Heroku. Tras abrir la cuenta, push a cualquiera de ellos. Para ejecutar en local
 
-	npm start
+```shell
+npm start
+```
 
 O, si se tiene instalado el Toolbelt de Heroku
 
-	foreman start web
-
+```
+foreman start web
+```
 
 
 
