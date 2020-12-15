@@ -1,4 +1,4 @@
-var request = require('supertest'), 
+const request = require('supertest'), 
 should = require('should'),
 app = require('../lib/index.js'),
 want_id = "mad-bcn-liga-2014";

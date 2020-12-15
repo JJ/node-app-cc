@@ -4,9 +4,8 @@ const pm2   = require('pm2');
 var shell = require('gulp-shell');
 
 gulp.task('test', () => (
-    gulp.src('test/porra.js', {read: false})
-        // `gulp-mocha` needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'nyan'}))
+    gulp.src('test/test_*.js', {read: false})
+    .pipe(mocha({reporter: 'nyan'}))
 ));
 
 gulp.task('start', function () {
