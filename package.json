@@ -9,9 +9,9 @@
   },
   "main": "./lib/index.js",
   "scripts": {
-      "test": "mocha --exit",
-      "start": "pm2 start lib/index.js -i 4",
-      "stop": "pm2 stop index"
+    "test": "mocha --exit",
+    "start": "pm2 start lib/index.js -i 4",
+    "stop": "pm2 stop index"
   },
   "dependencies": {
     "express": "^4.17.1",
