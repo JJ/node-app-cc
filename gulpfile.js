@@ -23,7 +23,8 @@ gulp.task('start', async () => {
 
 gulp.task('stop', async () => {
   pm2.connect(true, async () => {
-    pm2.stop( "Porra", ( err, proc ) => {
+    pm2.stop( "Porra", async ( err, proc ) => {
+      pm2.disconnect();
       console.log("Parando la porra");
     });
   });
