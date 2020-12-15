@@ -1,6 +1,6 @@
 const request = require('supertest'), 
 should = require('should'),
-app = require('../lib/index.js'),
+app = require('../lib/Rutas.js'),
 want_id = "mad-bcn-liga-2014";
 
 describe( "Crea porra y apuestas", function() {
