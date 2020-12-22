@@ -24,6 +24,8 @@
   "devDependencies": {
     "assert": "^1.1.2",
     "docco": "~0.6",
+    "grunt": "~1",
+    "grunt-docco": "~0",
     "grunt-shell": "^1.1.1",
     "gulp": "^4.0.2",
     "gulp-mocha": "^7.0.2",
