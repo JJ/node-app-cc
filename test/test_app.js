@@ -3,6 +3,15 @@ should = require('should'),
 app = require('../lib/Rutas.js'),
 want_id = "mad-bcn-liga-2014";
 
+describe( "Health check", function() {
+  it('should return health check', function (done) {
+	request(app)
+	    .get('/')
+	    .expect('Content-Type', /json/)
+	    .expect(200,done);
+    });
+});
+
 describe( "Crea porra y apuestas", function() {
     it('should return correct type', function (done) {
 	request(app)
