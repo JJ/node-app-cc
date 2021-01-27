@@ -14,6 +14,7 @@
     "stop": "pm2 stop index"
   },
   "dependencies": {
+    "consul": "^0.39.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-redis": "^0.1.7",
