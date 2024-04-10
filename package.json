@@ -16,7 +16,7 @@
   "dependencies": {
     "consul": "^0.39.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.3",
+    "express": "^4.19.2",
     "node-redis": "^0.1.7",
     "pg": ">=4.5.7",
     "redis": "^0.12.1",
