@@ -29,7 +29,7 @@
     "grunt": "~1",
     "grunt-docco": "~0",
     "grunt-shell": "^1.1.1",
-    "mocha": "^10.2.0",
+    "mocha": "^10.8.2",
     "pm2": "^5.3.1",
     "should": "^4.4.2",
     "supertest": "^4.0.0"
